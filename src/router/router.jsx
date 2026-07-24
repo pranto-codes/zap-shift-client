@@ -1,0 +1,65 @@
+import { createBrowserRouter } from "react-router";
+import RootLayout from "../layouts/RootLayout";
+import Homepage from "../Pages/Home/Homepage/Homepage";
+import Coverage from "../Pages/Coverage/Coverage";
+import About from "../Pages/About/About";
+import OurServices from "../Pages/Services/OurServices";
+import Error from "../Pages/Error/Error";
+import AuthLayout from "../layouts/AuthLayout";
+import Login from "../Pages/AuthRelatedPages/Login";
+import Register from "../Pages/AuthRelatedPages/Register";
+import PrivateRoute from "./PrivateRoute";
+import Rider from "../Pages/Rider/Rider";
+
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    Component: RootLayout,
+
+    children: [
+      {
+        index: true,
+        Component: Homepage,
+      },
+      {
+        path: "coverage",
+        Component: Coverage,
+        loader: () => fetch("/warehouses.json").then((res) => res.json()),
+      },
+      {
+        path: "rider",
+        element: (
+          <PrivateRoute>
+            <Rider></Rider>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "about",
+        Component: About,
+      },
+      {
+        path: "services",
+        Component: OurServices,
+      },
+      {
+        path: "*",
+        Component: Error,
+      },
+    ],
+  },
+  {
+    path: "/",
+    Component: AuthLayout,
+    children: [
+      {
+        path: "login",
+        Component: Login,
+      },
+      {
+        path: "register",
+        Component: Register,
+      },
+    ],
+  },
+]);
