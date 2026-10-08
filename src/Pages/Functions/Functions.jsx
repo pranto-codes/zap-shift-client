@@ -1,5 +1,5 @@
 import React from "react";
-import bookingImg from "../../assets/bookingicon.png";
+import bookingImg from "../../assets/bookingIcon.png";
 
 const Functions = () => {
   return (
@@ -10,7 +10,7 @@ const Functions = () => {
       <div className="flex gap-3 rounded-2xl p-5 border-2">
         <div className="p-2 card bg-blue-50 w-96 mt-3 shadow-sm">
           <figure>
-            <img src={bookingImg} alt="Shoes" />
+            <img src={Img} alt="Shoes" />
           </figure>
           <div className="card-body">
             <h2 className="card-title">Booking Pick & Drop</h2>
@@ -22,7 +22,7 @@ const Functions = () => {
         </div>
         <div className="card bg-blue-50 w-96 mt-3 shadow-sm">
           <figure>
-            <img src={bookingImg} alt="Shoes" />
+            <img src={Img} alt="Shoes" />
           </figure>
           <div className="card-body">
             <h2 className="card-title">Delivery Hub</h2>
