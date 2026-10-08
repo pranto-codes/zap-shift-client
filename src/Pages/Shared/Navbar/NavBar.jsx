@@ -1,10 +1,7 @@
 import React from "react";
 import Logo from "../../../components/Logo/Logo";
 import { Link, NavLink } from "react-router";
-import {
-  BsArrowUpRightCircleFill,
-  BsFillArrowUpRightCircleFill,
-} from "react-icons/bs";
+import { BsFillArrowUpRightCircleFill } from "react-icons/bs";
 import useAuth from "../../../hooks/useAuth";
 
 const NavBar = () => {
@@ -21,11 +18,6 @@ const NavBar = () => {
   const links = (
     <>
       <li>
-        <NavLink className="text-xl font-semibold" to="/services">
-          Services
-        </NavLink>
-      </li>
-      <li>
         <NavLink className="text-xl font-semibold" to="/coverage">
           Coverage
         </NavLink>
@@ -35,14 +27,15 @@ const NavBar = () => {
           About Us
         </NavLink>
       </li>
+
       <li>
-        <NavLink className="text-xl font-semibold" to="/services">
-          Pricing
+        <NavLink className="text-xl font-semibold" to="/sendParcel">
+          Send Parcel
         </NavLink>
       </li>
       <li>
-        <NavLink className="text-xl font-semibold" to="/services">
-          Blog
+        <NavLink className="text-xl font-semibold" to="/rider">
+          Rider
         </NavLink>
       </li>
       <li>
@@ -50,6 +43,19 @@ const NavBar = () => {
           Contact
         </NavLink>
       </li>
+
+      {user && (
+        <>
+          <li>
+            <NavLink
+              className="text-xl font-semibold"
+              to="/dashboard/myParcels"
+            >
+              My Parcels
+            </NavLink>
+          </li>
+        </>
+      )}
     </>
   );
 
